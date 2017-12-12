@@ -175,4 +175,4 @@ legend('Simple regulation','Negative autoregulation',...
     'Positive autoregulation','Location','southeast')
 
 xlim([0 50])
-ylabel('X/Xst');xlabel('time');print('f5','-dpng','-r300');
+ylabel('X/Xst');xlabel('time');print('f1','-dpng','-r300');
