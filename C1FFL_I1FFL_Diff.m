@@ -54,4 +54,4 @@ plot(t,x(:,[5,10,11]),'LineWidth',2,'LineSmoothing',   'on');
 set(gca,'LineWidth',2); set(gca,'fontsize',16); hold on;
 legend(names([5,10,11]));ylabel('amount');xlabel('time'); xlim([0 15]);
 f6.Position = [1 1 f6.Position(3:4).*2];
-print('f6','-dpng','-r300');
+print('f5','-dpng','-r300');
