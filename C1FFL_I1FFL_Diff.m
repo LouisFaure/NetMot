@@ -1,5 +1,5 @@
 load('C1FFL_I1FFL');
-%%
+%% Comparing Coherent & Incoherent type 1 FFLs
 for i = 1:2
     if i==1     % CFFL1
         C1FFL_I1FFL.Reactions(2).Active = 1;
