@@ -1,15 +1,13 @@
 load('C1FFL_I1FFL');
 %% Comparing Coherent & Incoherent type 1 FFLs
-for i = 1:2
-    if i==1     % CFFL1
-        C1FFL_I1FFL.Reactions(2).Active = 1;
-        C1FFL_I1FFL.Reactions(3).Active = 0;
-        idx = 'a';
-    elseif i==2 % IFFL1 
-        C1FFL_I1FFL.Reactions(2).Active = 0;
-        C1FFL_I1FFL.Reactions(3).Active = 1;
-        idx = 'b';
-    end
+reacAct = diag(ones(3,1));  % C1FFL AND | I1FFL1 AND | C1FFL OR
+idxs = 'abc';
+for i = 1:3
+    C1FFL_I1FFL.Reactions(2).Active = reacAct(i,1);
+    C1FFL_I1FFL.Reactions(3).Active = reacAct(i,2);
+    C1FFL_I1FFL.Reactions(4).Active = reacAct(i,3);
+    idx = idxs(i);
+    
     csObj = getconfigset(C1FFL_I1FFL,'active'); set(csObj,'Stoptime',20);
     eval(['[t',idx,',x',idx,',names] = sbiosimulate(C1FFL_I1FFL,csObj);'])
     eval(['t = t',idx,';']); eval(['x = x',idx,';']);
